@@ -42,7 +42,7 @@ class Migrasi_1906_ke_1907 extends CI_model
     public function up()
     {
         // Menambahkan Tabel tweb_aset yang digunakan unhtuk autofield pada pemilihan aset
-        if (! $this->db->table_exists('tweb_aset')) {
+        // if (! $this->db->table_exists('tweb_aset')) {
             $query = '
 			CREATE TABLE `tweb_aset` (
 				`id_aset` int(11) NOT NULL,
@@ -4314,7 +4314,7 @@ class Migrasi_1906_ke_1907 extends CI_model
 		";
 
             $this->db->query($query);
-        }
+        // }
 
         $fields['berat_lahir'] = [
             'type'       => 'SMALLINT',
