@@ -368,7 +368,7 @@ class Database_model extends MY_Model
         $sql = $this->db->insert_string('setting_modul', $data) . ' ON DUPLICATE KEY UPDATE url = VALUES(url), ikon = VALUES(ikon), ikon_kecil = VALUES(ikon_kecil)';
         $this->db->query($sql);
 
-        if (!$this->db->table_exists('teks_berjalan')) {
+        // if (!$this->db->table_exists('teks_berjalan')) {
             $query = "
 			CREATE TABLE `teks_berjalan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -421,7 +421,7 @@ class Database_model extends MY_Model
                     $this->db->where('kategori', 'teks_berjalan')->delete('kategori');
                 }
             }
-        }
+        // }
         // Tambah tautan pada teks berjalan
         if (!$this->db->field_exists('tautan', 'teks_berjalan')) {
             // Tambah kolom
