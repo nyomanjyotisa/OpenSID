@@ -44,7 +44,7 @@ class Migrasi_1909_ke_1910 extends CI_model
         // Tambah modul Keuangan
         $this->modul_keuangan();
         // Tambah tabel asuransi
-        if (! $this->db->table_exists('tweb_penduduk_asuransi')) {
+        // if (! $this->db->table_exists('tweb_penduduk_asuransi')) {
             $query = '
 				CREATE TABLE `tweb_penduduk_asuransi` (
 					`id` tinyint(5) NOT NULL AUTO_INCREMENT,
@@ -63,7 +63,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 			";
 
             $this->db->query($query);
-        }
+        //}
         // Tambah kolom no_asuransi, id_asuransi
         if (! $this->db->field_exists('id_asuransi', 'tweb_penduduk')) {
             $fields                = [];
@@ -236,7 +236,7 @@ class Migrasi_1909_ke_1910 extends CI_model
     private function data_siskeudes()
     {
         //insert tabel2 untuk keuangan
-        if (! $this->db->table_exists('keuangan_master')) {
+        // if (! $this->db->table_exists('keuangan_master')) {
             $query = "
 			CREATE TABLE IF NOT EXISTS `keuangan_master` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -247,10 +247,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)";
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_bank_desa
-        if (! $this->db->table_exists('keuangan_ref_bank_desa')) {
+        // if (! $this->db->table_exists('keuangan_ref_bank_desa')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_bank_desa` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -263,10 +263,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_bel_operasional
-        if (! $this->db->table_exists('keuangan_ref_bel_operasional')) {
+        // if (! $this->db->table_exists('keuangan_ref_bel_operasional')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_bel_operasional` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -275,10 +275,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_bidang
-        if (! $this->db->table_exists('keuangan_ref_bidang')) {
+        // if (! $this->db->table_exists('keuangan_ref_bidang')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_bidang` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -288,10 +288,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_bunga
-        if (! $this->db->table_exists('keuangan_ref_bunga')) {
+        // if (! $this->db->table_exists('keuangan_ref_bunga')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_bunga` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -301,10 +301,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_desa
-        if (! $this->db->table_exists('keuangan_ref_desa')) {
+        // if (! $this->db->table_exists('keuangan_ref_desa')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_desa` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -315,10 +315,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_kecamatan
-        if (! $this->db->table_exists('keuangan_ref_kecamatan')) {
+        // if (! $this->db->table_exists('keuangan_ref_kecamatan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_kecamatan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -328,10 +328,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_kegiatan
-        if (! $this->db->table_exists('keuangan_ref_kegiatan')) {
+        // if (! $this->db->table_exists('keuangan_ref_kegiatan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_kegiatan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -342,10 +342,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_korolari
-        if (! $this->db->table_exists('keuangan_ref_korolari')) {
+        // if (! $this->db->table_exists('keuangan_ref_korolari')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_korolari` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -357,10 +357,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_neraca_close
-        if (! $this->db->table_exists('keuangan_ref_neraca_close')) {
+        // if (! $this->db->table_exists('keuangan_ref_neraca_close')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_neraca_close` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -370,10 +370,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_perangkat
-        if (! $this->db->table_exists('keuangan_ref_perangkat')) {
+        // if (! $this->db->table_exists('keuangan_ref_perangkat')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_perangkat` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -383,10 +383,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_potongan
-        if (! $this->db->table_exists('keuangan_ref_potongan')) {
+        // if (! $this->db->table_exists('keuangan_ref_potongan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_potongan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -396,10 +396,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_potongan
-        if (! $this->db->table_exists('keuangan_ref_rek1')) {
+        // if (! $this->db->table_exists('keuangan_ref_rek1')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_rek1` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -410,10 +410,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_rek2
-        if (! $this->db->table_exists('keuangan_ref_rek2')) {
+        // if (! $this->db->table_exists('keuangan_ref_rek2')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_rek2` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -424,10 +424,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_rek3
-        if (! $this->db->table_exists('keuangan_ref_rek3')) {
+        // if (! $this->db->table_exists('keuangan_ref_rek3')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_rek3` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -439,10 +439,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_rek4
-        if (! $this->db->table_exists('keuangan_ref_rek4')) {
+        // if (! $this->db->table_exists('keuangan_ref_rek4')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_rek4` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -454,10 +454,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_sbu
-        if (! $this->db->table_exists('keuangan_ref_sbu')) {
+        // if (! $this->db->table_exists('keuangan_ref_sbu')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_sbu` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -471,10 +471,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ref_sumber
-        if (! $this->db->table_exists('keuangan_ref_sumber')) {
+        // if (! $this->db->table_exists('keuangan_ref_sumber')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ref_sumber` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -485,10 +485,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_anggaran
-        if (! $this->db->table_exists('keuangan_ta_anggaran')) {
+        // if (! $this->db->table_exists('keuangan_ta_anggaran')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_anggaran` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -509,10 +509,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert  keuangan_ta_anggaran_log
-        if (! $this->db->table_exists(' keuangan_ta_anggaran_log')) {
+        // if (! $this->db->table_exists(' keuangan_ta_anggaran_log')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_anggaran_log` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -527,10 +527,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_anggaran_rinci
-        if (! $this->db->table_exists('keuangan_ta_anggaran_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_anggaran_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_anggaran_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -555,10 +555,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_bidang
-        if (! $this->db->table_exists('keuangan_ta_bidang')) {
+        // if (! $this->db->table_exists('keuangan_ta_bidang')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_bidang` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -570,10 +570,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_desa
-        if (! $this->db->table_exists('keuangan_ta_desa')) {
+        // if (! $this->db->table_exists('keuangan_ta_desa')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_desa` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -602,10 +602,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_jurnal_umum
-        if (! $this->db->table_exists('keuangan_ta_jurnal_umum')) {
+        // if (! $this->db->table_exists('keuangan_ta_jurnal_umum')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_jurnal_umum` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -625,10 +625,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_jurnal_umum_rinci
-        if (! $this->db->table_exists('keuangan_ta_jurnal_umum_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_jurnal_umum_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_jurnal_umum_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -648,10 +648,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_kegiatan
-        if (! $this->db->table_exists('keuangan_ta_kegiatan')) {
+        // if (! $this->db->table_exists('keuangan_ta_kegiatan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_kegiatan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -673,10 +673,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_mutasi
-        if (! $this->db->table_exists('keuangan_ta_mutasi')) {
+        // if (! $this->db->table_exists('keuangan_ta_mutasi')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_mutasi` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -695,10 +695,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_pajak
-        if (! $this->db->table_exists('keuangan_ta_pajak')) {
+        // if (! $this->db->table_exists('keuangan_ta_pajak')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_pajak` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -720,10 +720,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_pajak_rinci
-        if (! $this->db->table_exists('keuangan_ta_pajak_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_pajak_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_pajak_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -737,10 +737,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_pemda
-        if (! $this->db->table_exists('keuangan_ta_pemda')) {
+        // if (! $this->db->table_exists('keuangan_ta_pemda')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_pemda` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -761,10 +761,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_pencairan
-        if (! $this->db->table_exists('keuangan_ta_pencairan')) {
+        // if (! $this->db->table_exists('keuangan_ta_pencairan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_pencairan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -781,10 +781,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_perangkat
-        if (! $this->db->table_exists('keuangan_ta_perangkat')) {
+        // if (! $this->db->table_exists('keuangan_ta_perangkat')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_perangkat` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -801,10 +801,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rab
-        if (! $this->db->table_exists('keuangan_ta_rab')) {
+        // if (! $this->db->table_exists('keuangan_ta_rab')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rab` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -819,10 +819,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rab_rinci
-        if (! $this->db->table_exists('keuangan_ta_rab_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_rab_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rab_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -847,10 +847,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rab_sub
-        if (! $this->db->table_exists('keuangan_ta_rab_sub')) {
+        // if (! $this->db->table_exists('keuangan_ta_rab_sub')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rab_sub` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -867,10 +867,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_bidang
-        if (! $this->db->table_exists('keuangan_ta_rpjm_bidang')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_bidang')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_bidang` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -881,10 +881,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_kegiatan
-        if (! $this->db->table_exists('keuangan_ta_rpjm_kegiatan')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_kegiatan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_kegiatan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -911,10 +911,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_misi
-        if (! $this->db->table_exists('keuangan_ta_rpjm_misi')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_misi')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_misi` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -927,10 +927,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_pagu_indikatif
-        if (! $this->db->table_exists('keuangan_ta_rpjm_pagu_indikatif')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_pagu_indikatif')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_pagu_indikatif` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -948,10 +948,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_pagu_tahunan
-        if (! $this->db->table_exists('keuangan_ta_rpjm_pagu_tahunan')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_pagu_tahunan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_pagu_tahunan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -975,10 +975,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_sasaran
-        if (! $this->db->table_exists('keuangan_ta_rpjm_sasaran')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_sasaran')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_sasaran` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -991,10 +991,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_tujuan
-        if (! $this->db->table_exists('keuangan_ta_rpjm_tujuan')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_tujuan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_tujuan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1007,10 +1007,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_rpjm_visi
-        if (! $this->db->table_exists('keuangan_ta_rpjm_visi')) {
+        // if (! $this->db->table_exists('keuangan_ta_rpjm_visi')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_rpjm_visi` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1024,10 +1024,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_saldo_awal
-        if (! $this->db->table_exists('keuangan_ta_saldo_awal')) {
+        // if (! $this->db->table_exists('keuangan_ta_saldo_awal')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_saldo_awal` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1043,10 +1043,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spj
-        if (! $this->db->table_exists('keuangan_ta_spj')) {
+        // if (! $this->db->table_exists('keuangan_ta_spj')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spj` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1063,10 +1063,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spjpot
-        if (! $this->db->table_exists('keuangan_ta_spjpot')) {
+        // if (! $this->db->table_exists('keuangan_ta_spjpot')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spjpot` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1081,10 +1081,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spj_bukti
-        if (! $this->db->table_exists('keuangan_ta_spj_bukti')) {
+        // if (! $this->db->table_exists('keuangan_ta_spj_bukti')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spj_bukti` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1107,10 +1107,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spj_rinci
-        if (! $this->db->table_exists('keuangan_ta_spj_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_spj_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spj_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1129,10 +1129,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spj_sisa
-        if (! $this->db->table_exists('keuangan_ta_spj_sisa')) {
+        // if (! $this->db->table_exists('keuangan_ta_spj_sisa')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spj_sisa` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1151,10 +1151,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spp
-        if (! $this->db->table_exists('keuangan_ta_spp')) {
+        // if (! $this->db->table_exists('keuangan_ta_spp')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spp` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1171,10 +1171,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spp_rinci
-        if (! $this->db->table_exists('keuangan_ta_spp_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_spp_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spp_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1189,10 +1189,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_sppbukti
-        if (! $this->db->table_exists('keuangan_ta_sppbukti')) {
+        // if (! $this->db->table_exists('keuangan_ta_sppbukti')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_sppbukti` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1215,10 +1215,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_spppot
-        if (! $this->db->table_exists('keuangan_ta_spppot')) {
+        // if (! $this->db->table_exists('keuangan_ta_spppot')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_spppot` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1233,10 +1233,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_sts
-        if (! $this->db->table_exists('keuangan_ta_sts')) {
+        // if (! $this->db->table_exists('keuangan_ta_sts')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_sts` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1254,10 +1254,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_sts_rinci
-        if (! $this->db->table_exists('keuangan_ta_sts_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_sts_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_sts_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1271,10 +1271,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_tbp
-        if (! $this->db->table_exists('keuangan_ta_tbp')) {
+        // if (! $this->db->table_exists('keuangan_ta_tbp')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_tbp` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1298,10 +1298,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_tbp_rinci
-        if (! $this->db->table_exists('keuangan_ta_tbp_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_tbp_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_tbp_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1317,10 +1317,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_triwulan
-        if (! $this->db->table_exists('keuangan_ta_triwulan')) {
+        // if (! $this->db->table_exists('keuangan_ta_triwulan')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_triwulan` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1342,10 +1342,10 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
         //insert keuangan_ta_triwulan_rinci
-        if (! $this->db->table_exists('keuangan_ta_triwulan_rinci')) {
+        // if (! $this->db->table_exists('keuangan_ta_triwulan_rinci')) {
             $query = '
 			CREATE TABLE IF NOT EXISTS `keuangan_ta_triwulan_rinci` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1368,7 +1368,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        //}
 
 		return true;
     }
