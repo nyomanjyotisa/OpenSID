@@ -263,7 +263,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_bel_operasional
         if (! $this->db->table_exists('keuangan_ref_bel_operasional')) {
@@ -275,7 +275,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_bidang
         if (! $this->db->table_exists('keuangan_ref_bidang')) {
@@ -288,7 +288,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_bunga
         if (! $this->db->table_exists('keuangan_ref_bunga')) {
@@ -315,7 +315,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_kecamatan
         if (! $this->db->table_exists('keuangan_ref_kecamatan')) {
@@ -328,7 +328,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_kegiatan
         if (! $this->db->table_exists('keuangan_ref_kegiatan')) {
@@ -342,7 +342,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        // }
+        }
 
         //insert keuangan_ref_korolari
         if (! $this->db->table_exists('keuangan_ref_korolari')) {
