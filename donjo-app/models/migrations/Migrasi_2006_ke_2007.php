@@ -48,6 +48,8 @@ class Migrasi_2006_ke_2007 extends CI_model
         $this->data_apbdes_manual();
         $this->konfigurasi_web();
         $this->konfigurasi_qrcode();
+
+		return true;
     }
 
     private function data_apbdes_manual()

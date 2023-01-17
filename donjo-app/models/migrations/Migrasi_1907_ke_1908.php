@@ -136,5 +136,7 @@ class Migrasi_1907_ke_1908 extends CI_model
 				kode_surat = VALUES(kode_surat),
 				jenis = VALUES(jenis)';
         $this->db->query($sql);
+
+        return true;
     }
 }

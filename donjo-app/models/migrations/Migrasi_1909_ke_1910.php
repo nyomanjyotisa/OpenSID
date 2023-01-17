@@ -98,8 +98,7 @@ class Migrasi_1909_ke_1910 extends CI_model
             'url'        => 'kategori',
             'aktif'      => '1',
             'ikon'       => '',
-            'urut'       => '',
-            'level'      => '',
+            'urut'       => null,
             'parent'     => '49',
             'hidden'     => '2',
             'ikon_kecil' => '',
@@ -112,8 +111,7 @@ class Migrasi_1909_ke_1910 extends CI_model
             'url'        => 'penduduk_log',
             'aktif'      => '1',
             'ikon'       => '',
-            'urut'       => '',
-            'level'      => '',
+            'urut'       => null,
             'parent'     => '21',
             'hidden'     => '2',
             'ikon_kecil' => '',
@@ -129,8 +127,7 @@ class Migrasi_1909_ke_1910 extends CI_model
                 'url'        => $submodul,
                 'aktif'      => '1',
                 'ikon'       => '',
-                'urut'       => '',
-                'level'      => '',
+                'urut'       => null,
                 'parent'     => '5',
                 'hidden'     => '2',
                 'ikon_kecil' => '',
@@ -144,8 +141,7 @@ class Migrasi_1909_ke_1910 extends CI_model
             'url'        => 'wilayah',
             'aktif'      => '1',
             'ikon'       => '',
-            'urut'       => '',
-            'level'      => '',
+            'urut'       => null,
             'parent'     => '21',
             'hidden'     => '2',
             'ikon_kecil' => '',
@@ -162,8 +158,7 @@ class Migrasi_1909_ke_1910 extends CI_model
                 'url'        => $submodul,
                 'aktif'      => '1',
                 'ikon'       => '',
-                'urut'       => '',
-                'level'      => '',
+                'urut'       => null,
                 'parent'     => '61',
                 'hidden'     => '2',
                 'ikon_kecil' => '',
@@ -173,13 +168,13 @@ class Migrasi_1909_ke_1910 extends CI_model
         }
 
         // Ubah id rtm supaya bisa lebih panjang
-        $sql = 'ALTER TABLE `tweb_rtm` CHANGE `no_kk` `no_kk` VARCHAR(30) NOT NULL';
+        $sql = 'ALTER TABLE `tweb_rtm` CHANGE `no_kk` `no_kk` VARCHAR(30)';
         $this->db->query($sql);
-        $sql = 'ALTER TABLE `tweb_penduduk` CHANGE `id_rtm` `id_rtm` VARCHAR(30) NOT NULL';
+        $sql = 'ALTER TABLE `tweb_penduduk` CHANGE `id_rtm` `id_rtm` VARCHAR(30)';
         $this->db->query($sql);
-        $sql = 'ALTER TABLE `program_peserta` CHANGE `peserta` `peserta` VARCHAR(30) NOT NULL';
+        $sql = 'ALTER TABLE `program_peserta` CHANGE `peserta` `peserta` VARCHAR(30)';
         $this->db->query($sql);
-        $sql = 'ALTER TABLE `program_peserta` CHANGE `kartu_nik` `kartu_nik` VARCHAR(30) NOT NULL';
+        $sql = 'ALTER TABLE `program_peserta` CHANGE `kartu_nik` `kartu_nik` VARCHAR(30)';
         $this->db->query($sql);
 
         // ubah/perbaiki struktur database, table artikel
@@ -194,6 +189,8 @@ class Migrasi_1909_ke_1910 extends CI_model
         if ($this->db->field_exists('jenis_widget', 'artikel')) {
             $this->dbforge->drop_column('artikel', 'jenis_widget');
         }
+
+		return true;
     }
 
     private function modul_keuangan()
@@ -209,10 +206,10 @@ class Migrasi_1909_ke_1910 extends CI_model
         }
         // Tambah menu navigasi untuk keuangan
         $query = "
-			INSERT INTO setting_modul (`id`, `modul`, `url`, `aktif`, `ikon`, `urut`, `level`, `parent`, `hidden`, `ikon_kecil`) VALUES
-			('201', 'Keuangan', 'keuangan', '1', 'fa-balance-scale', '6', '2', '0', '0', 'fa-balance-scale'),
-			('202', 'Impor Data', 'keuangan/impor_data', '1', 'fa-cloud-upload', '6', '2', '201', '0', 'fa-cloud-upload'),
-			('203', 'Laporan', 'keuangan/laporan', '1', 'fa-bar-chart', '6', '2', '201', '0', 'fa-bar-chart')
+			INSERT INTO setting_modul (`id`, `modul`, `url`, `aktif`, `ikon`, `urut`, `parent`, `hidden`, `ikon_kecil`) VALUES
+			('201', 'Keuangan', 'keuangan', '1', 'fa-balance-scale', '6', '0', '0', 'fa-balance-scale'),
+			('202', 'Impor Data', 'keuangan/impor_data', '1', 'fa-cloud-upload', '6', '201', '0', 'fa-cloud-upload'),
+			('203', 'Laporan', 'keuangan/laporan', '1', 'fa-bar-chart', '6', '201', '0', 'fa-bar-chart')
 			ON DUPLICATE KEY UPDATE url = VALUES(url);
 		";
         $this->db->query($query);
@@ -266,7 +263,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_bel_operasional
         if (! $this->db->table_exists('keuangan_ref_bel_operasional')) {
@@ -278,7 +275,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_bidang
         if (! $this->db->table_exists('keuangan_ref_bidang')) {
@@ -291,7 +288,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_bunga
         if (! $this->db->table_exists('keuangan_ref_bunga')) {
@@ -318,7 +315,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_kecamatan
         if (! $this->db->table_exists('keuangan_ref_kecamatan')) {
@@ -331,7 +328,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_kegiatan
         if (! $this->db->table_exists('keuangan_ref_kegiatan')) {
@@ -345,7 +342,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 				PRIMARY KEY (`id`)
 			)';
             $this->db->query($query);
-        }
+        // }
 
         //insert keuangan_ref_korolari
         if (! $this->db->table_exists('keuangan_ref_korolari')) {
@@ -1372,5 +1369,7 @@ class Migrasi_1909_ke_1910 extends CI_model
 			)';
             $this->db->query($query);
         }
+
+		return true;
     }
 }

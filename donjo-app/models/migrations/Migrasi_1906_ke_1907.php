@@ -4379,5 +4379,7 @@ class Migrasi_1906_ke_1907 extends CI_model
 					jenis = VALUES(jenis)';
             $this->db->query($sql);
         }
+
+		return true;
     }
 }

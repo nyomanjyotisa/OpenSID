@@ -137,6 +137,8 @@ class Migrasi_1910_ke_1911 extends CI_model
         ];
         $sql = $this->db->insert_string('setting_modul', $modul_nonmenu) . ' ON DUPLICATE KEY UPDATE modul = VALUES(modul), url = VALUES(url), parent = VALUES(parent)';
         $this->db->query($sql);
+
+        return true;
     }
 
     private function jdih()
@@ -227,5 +229,7 @@ class Migrasi_1910_ke_1911 extends CI_model
         $this->db->where('id', 95)->update('setting_modul', ['modul' => 'Produk Hukum']);
         // Perbesar kolom 'path' untuk peta wilayah
         $this->dbforge->modify_column('tweb_wil_clusterdesa', ['path' => ['type' => 'TEXT', 'null' => true]]);
+
+        return true;
     }
 }

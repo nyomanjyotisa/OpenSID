@@ -90,6 +90,8 @@ class Migrasi_2005_ke_2006 extends CI_model
                 ],
             ]);
         }
+
+        return true;
     }
 
     private function grup_akses_covid19()
@@ -98,7 +100,7 @@ class Migrasi_2005_ke_2006 extends CI_model
         $data[] = [
             'id'         => '5',
             'nama'       => 'Satgas Covid-19',
-            'updated_by' => $this->session->user,
+            // 'updated_by' => $this->session->user,
         ];
 
         // karena di versi ini belum ada updated_by, tp dilakukan migrasi mundur jadi updated_by perlu diisi
@@ -106,8 +108,7 @@ class Migrasi_2005_ke_2006 extends CI_model
             $sql = $this->db->insert_string('user_grup', $grup);
             $sql .= ' ON DUPLICATE KEY UPDATE
 			id = VALUES(id),
-			nama = VALUES(nama),
-            updated_by = VALUES(updated_by)';
+			nama = VALUES(nama)';
             $this->db->query($sql);
         }
     }

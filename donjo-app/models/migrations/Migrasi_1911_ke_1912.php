@@ -181,5 +181,7 @@ class Migrasi_1911_ke_1912 extends CI_model
         $this->dbforge->modify_column('analisis_kategori_indikator', 'kategori_kode varchar(3) NULL DEFAULT NULL');
         $this->dbforge->modify_column('analisis_kategori_indikator', 'id int(11) NOT NULL AUTO_INCREMENT');
         $this->dbforge->modify_column('analisis_indikator', 'id_kategori int(4) NOT NULL');
+
+        return true;
     }
 }

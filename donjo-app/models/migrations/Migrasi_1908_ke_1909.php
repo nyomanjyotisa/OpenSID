@@ -82,5 +82,7 @@ class Migrasi_1908_ke_1909 extends CI_model
             ];
             $this->dbforge->add_column('log_surat', $fields);
         }
+
+        return true;
     }
 }

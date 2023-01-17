@@ -85,6 +85,8 @@ class Migrasi_2002_ke_2003 extends CI_model
 				parent = VALUES(parent)
 				';
         $this->db->query($sql);
+
+        return true;
     }
 
     private function surat_mandiri()

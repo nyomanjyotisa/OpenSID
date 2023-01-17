@@ -49,6 +49,10 @@ class Config_model extends CI_Model
     // Digunakan dibanyak tempat
     public function get_data()
     {
+        if (! Schema::hasColumn('config', 'pamong_id')) {
+            return null;
+        }
+
         $this->db->reset_query(); // TODO: cari query yg menggantung terkait pemanggilan first/dpt
 
         return $this->db

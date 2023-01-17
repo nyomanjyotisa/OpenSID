@@ -99,6 +99,8 @@ class Migrasi_2004_ke_2005 extends CI_model
         // Perbaharui view (digunakan juga untuk tambah field id_parent)
         $this->db->query('DROP VIEW dokumen_hidup');
         $this->db->query('CREATE VIEW dokumen_hidup AS SELECT * FROM dokumen WHERE deleted <> 1');
+
+        return true;
     }
 
     private function covid19()

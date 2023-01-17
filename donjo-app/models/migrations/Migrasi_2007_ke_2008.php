@@ -94,6 +94,8 @@ class Migrasi_2007_ke_2008 extends CI_model
         $this->db->query('ALTER TABLE tweb_desa_pamong MODIFY pamong_nosk VARCHAR(30) DEFAULT NULL;');
         // Tambahkan panjang keterangan program bantuan
         $this->db->query('ALTER TABLE program MODIFY ndesc VARCHAR(500) DEFAULT NULL;');
+    
+        return true;
     }
 
     private function add_notifikasi()

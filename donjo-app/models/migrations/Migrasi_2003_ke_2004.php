@@ -92,6 +92,8 @@ class Migrasi_2003_ke_2004 extends CI_model
             }
         }
         $this->tambah_tabel_migrasi();
+
+        return true;
     }
 
     private function tambah_tabel_migrasi()
