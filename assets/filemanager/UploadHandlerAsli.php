@@ -41,6 +41,7 @@ class UploadHandler
     const IMAGETYPE_GIF = 1;
     const IMAGETYPE_JPEG = 2;
     const IMAGETYPE_PNG = 3;
+    const IMAGETYPE_WEBP = 18;
 
     protected $image_objects = array();
 
@@ -522,6 +523,9 @@ class UploadHandler
                 case self::IMAGETYPE_GIF:
                     $extensions = array('gif');
                     break;
+                case self::IMAGETYPE_WEBP:
+                    $extensions = array('webp');
+                    break;
             }
             // Adjust incorrect image file extensions:
             if (!empty($extensions)) {
@@ -733,6 +737,12 @@ class UploadHandler
                 $write_func = 'imagepng';
                 $image_quality = isset($options['png_quality']) ?
                     $options['png_quality'] : 9;
+                break;
+            case 'webp':
+                $src_func = 'imagecreatefromwebp';
+                $write_func = 'imagewebp';
+                $image_quality = isset($options['webp_quality']) ?
+                    $options['webp_quality'] : 80;
                 break;
             default:
                 return false;
@@ -1069,7 +1079,7 @@ class UploadHandler
 
     protected function imagetype($file_path) {
         $fp = fopen($file_path, 'r');
-        $data = fread($fp, 4);
+        $data = fread($fp, 12);
         fclose($fp);
         // GIF: 47 49 46 38
         if ($data === 'GIF8') {
@@ -1082,6 +1092,10 @@ class UploadHandler
         // PNG: 89 50 4E 47
         if (bin2hex(@$data[0]).substr($data, 1, 4) === '89PNG') {
             return self::IMAGETYPE_PNG;
+        }
+        // WEBP: RIFF + WEBP
+        if (substr($data, 0, 4) === 'RIFF' && substr($data, 8, 4) === 'WEBP') {
+            return self::IMAGETYPE_WEBP;
         }
         return false;
     }
@@ -1247,6 +1261,8 @@ class UploadHandler
                 return 'image/png';
             case 'gif':
                 return 'image/gif';
+            case 'webp':
+                return 'image/webp';
             default:
                 return '';
         }
