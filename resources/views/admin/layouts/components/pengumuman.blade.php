@@ -28,7 +28,8 @@
                     @if ($jenis == 'pengumuman')
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="checkbox_pengumuman" name="non_aktifkan" value="non_aktifkan"></input>&nbsp;Jangan tampilkan lagi
+                                <input type="checkbox" id="checkbox_pengumuman" name="non_aktifkan"
+                                    value="non_aktifkan"></input>&nbsp;Jangan tampilkan lagi
                             </label>
                         </div>
                     @endif
@@ -42,10 +43,13 @@
             </div>
             <div class="modal-footer" id="m_footer">
                 @if ($jenis == 'pengumuman')
-                    <button type="reset" data-dismiss="modal" id="btnSetuju" class="btn btn-social btn-warning btn-sm"><i class="fa fa-sign-out"></i> OK</button>
+                    <button type="reset" data-dismiss="modal" id="btnSetuju"
+                        class="btn btn-social btn-warning btn-sm"><i class="fa fa-sign-out"></i> OK</button>
                 @else
-                    <button type="reset" data-dismiss="modal" id="btnTidak" class="btn btn-social btn-danger btn-sm"><i class="fa fa-sign-out"></i> Tidak</button>
-                    <button type="submit" id="btnSetuju" class="btn btn-social btn-warning btn-sm"><i class="fa fa-check"></i> Setuju</button>
+                    <button type="reset" data-dismiss="modal" id="btnTidak"
+                        class="btn btn-social btn-danger btn-sm"><i class="fa fa-sign-out"></i> Tidak</button>
+                    <button type="submit" id="btnSetuju" class="btn btn-social btn-warning btn-sm"><i
+                            class="fa fa-check"></i> Setuju</button>
                 @endif
             </div>
         </div>

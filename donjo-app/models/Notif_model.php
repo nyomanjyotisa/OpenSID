@@ -37,6 +37,11 @@
 
 class Notif_model extends MY_Model
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function permohonan_surat_baru()
     {
         return $this->config_id()

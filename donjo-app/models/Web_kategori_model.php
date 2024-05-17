@@ -167,13 +167,10 @@ class Web_kategori_model extends MY_Model
         $data['kategori'] = htmlentities($data['kategori']);
     }
 
-    private function cek_nama($kategori, $id = 0)
+    private function cek_nama($kategori)
     {
-        $ada_nama = $this->config_id(null, true)
-            ->where('kategori', $kategori)
-            ->where('id !=', $id)
+        $ada_nama = $this->config_id(null, true)->where('kategori', $kategori)
             ->get('kategori')->num_rows();
-
         if ($ada_nama) {
             $_SESSION['error_msg'] .= ' -> Nama kategori tidak boleh sama';
             $_SESSION['success'] = -1;
@@ -193,7 +190,8 @@ class Web_kategori_model extends MY_Model
         if ($data['kategori'] == $data['kategori_lama']) {
             return; // Tidak ada yg diubah
         }
-        if (! $this->cek_nama($data['kategori'], $id)) {
+
+        if (! $this->cek_nama($data['kategori'])) {
             return;
         }
 

@@ -41,6 +41,11 @@ class Sinkronisasi_model extends CI_model
 {
     private $zip_file = '';
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     // $file = nama file yg akan diproses
     private function extract_file($file)
     {

@@ -73,7 +73,7 @@ class Path implements CastsAttributes
 
     private function path_null($value)
     {
-        if ($value == '[]' || empty($value)) {
+        if ($value == '[]' || count($value) == 0) {
             return null;
         }
 

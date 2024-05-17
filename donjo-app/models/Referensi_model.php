@@ -100,7 +100,6 @@ define('STAT_PENDUDUK', serialize([
     'suku'             => 'Suku / Etnis',
     'bpjs-tenagakerja' => 'BPJS Ketenagakerjaan',
     'hamil'            => 'Status Kehamilan',
-    'buku-nikah'       => 'Buku Nikah',
 ]));
 
 // Statistik Keluarga

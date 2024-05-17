@@ -15,7 +15,8 @@
         <div class="box-header">
             <h3 class="box-title">Pemantauan</h3>
             <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                        class="fa fa-minus"></i></button>
             </div>
         </div>
         <div class="box-body no-padding">
@@ -35,7 +36,8 @@
         <div class="box-header">
             <h3 class="box-title">Rekapitulasi</h3>
             <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                        class="fa fa-minus"></i></button>
             </div>
         </div>
         <div class="box-body no-padding">

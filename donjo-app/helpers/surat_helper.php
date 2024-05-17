@@ -302,20 +302,16 @@ if (! function_exists('checklist')) {
     }
 }
 
-function get_key_form_kategori($data, $utama = false)
+function get_key_form_kategori($data)
 {
-    $kategori = collect($data)->mapWithKeys(static function ($item, $key) {
-        $judul = $item->judul ?: str_replace('_', ' ', $key);
-        if ($key == 'individu') {
-            $judul = 'Utama';
+    $result = [];
+
+    foreach ($data as $key => $value) {
+        if ($key == 'data' || $key == 'individu' || $key == 'data_orang_tua' || $key == 'data_pasangan') {
+            continue;
         }
-
-        return [$key => $judul];
-    })->toArray();
-
-    if (! $utama) {
-        unset($kategori['individu']);
+        $result[] = $key;
     }
 
-    return $kategori;
+    return $result;
 }

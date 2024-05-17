@@ -37,14 +37,10 @@
 
 namespace App\Models;
 
-use App\Traits\ConfigId;
-
 defined('BASEPATH') || exit('No direct script access allowed');
 
 class KelompokAnggota extends BaseModel
 {
-    use ConfigId;
-
     /**
      * The table associated with the model.
      *

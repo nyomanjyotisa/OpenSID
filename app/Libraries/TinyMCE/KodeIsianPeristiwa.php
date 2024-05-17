@@ -44,7 +44,7 @@ class KodeIsianPeristiwa
     private $logPeristiwa;
     private $statusDasar;
 
-    public function __construct($idPenduduk, array $statusDasar = [])
+    public function __construct($idPenduduk, $statusDasar)
     {
         $this->statusDasar  = $statusDasar;
         $this->logPeristiwa = LogPenduduk::where('id_pend', $idPenduduk)->latest()->first();
@@ -52,25 +52,27 @@ class KodeIsianPeristiwa
 
     public static function get($idPenduduk, $statusDasar)
     {
-        return (new self($idPenduduk, $statusDasar))->kodeIsian();
+        $kodeIsian = new self($idPenduduk, $statusDasar);
+
+        return $kodeIsian->kodeIsian();
     }
 
     public function kodeIsian()
     {
         switch ($this->statusDasar) {
-            case [LogPenduduk::BARU_LAHIR]:
+            case LogPenduduk::BARU_LAHIR:
                 $data = $this->getLahir($this->logPeristiwa);
                 break;
 
-            case [LogPenduduk::MATI]:
+            case LogPenduduk::MATI:
                 $data = $this->getKematian($this->logPeristiwa);
                 break;
 
-            case [LogPenduduk::PINDAH_KELUAR]:
+            case LogPenduduk::PINDAH_KELUAR:
                 $data = $this->getPindah($this->logPeristiwa);
                 break;
 
-            case [LogPenduduk::HILANG]:
+            case LogPenduduk::HILANG:
                 $data = $this->getHilang($this->logPeristiwa);
                 break;
 
@@ -88,57 +90,53 @@ class KodeIsianPeristiwa
         return [
             [
                 'judul' => 'Hari Kelahiran',
-                'isian' => 'hari_kelahiran',
+                'isian' => getFormatIsian('Hari_kelahiranN'),
                 'data'  => hari($peristiwa->penduduk->tanggallahir),
             ],
             [
                 'judul' => 'Tanggal Kelahiran',
-                'isian' => 'tanggal_kelahiran',
-                'data'  => formatTanggal($peristiwa->penduduk->tanggallahir),
+                'isian' => getFormatIsian('Tanggal_kelahiranN'),
+                'data'  => tgl_indo($peristiwa->penduduk->tanggallahir),
             ],
             [
-                'case_sentence' => true,
-                'judul'         => 'Jam Kelahiran',
-                'isian'         => 'jam_kelahiran',
-                'data'          => $peristiwa->penduduk->waktu_lahir,
+                'judul' => 'Jam Kelahiran',
+                'isian' => getFormatIsian('Jam_kelahiranN'),
+                'data'  => $peristiwa->penduduk->waktu_lahir,
             ],
             [
                 'judul' => 'Tempat Dilahirkan',
-                'isian' => 'tempat_dilahirkanN',
+                'isian' => getFormatIsian('Tempat_dilahirkanN'),
                 'data'  => $peristiwa->penduduk->tempatlahir,
             ],
             [
                 'judul' => 'Tempat Kelahiran',
-                'isian' => 'tempat_kelahiran',
+                'isian' => getFormatIsian('Tempat_kelahiranN'),
                 'data'  => $peristiwa->penduduk->tempatlahir,
             ],
             [
                 'judul' => 'Jenis Kelahiran',
-                'isian' => 'jenis_kelahiran',
+                'isian' => getFormatIsian('Jenis_kelahiranN'),
                 'data'  => $peristiwa->penduduk->jenisLahir,
             ],
             [
-                'case_sentence' => true,
-                'judul'         => 'Kelahiran Anak Ke',
-                'isian'         => 'kelahiran_anaK',
-                'data'          => $peristiwa->penduduk->kelahiran_anak_ke,
+                'judul' => 'Kelahiran Anak Ke',
+                'isian' => getFormatIsian('Kelahiran_anaK'),
+                'data'  => $peristiwa->penduduk->kelahiran_anak_ke,
             ],
             [
                 'judul' => 'Penolong Kelahiran',
-                'isian' => 'penolong_kelahiran',
+                'isian' => getFormatIsian('Penolong_kelahiranN'),
                 'data'  => $peristiwa->penduduk->penolongLahir,
             ],
             [
-                'case_sentence' => true,
-                'judul'         => 'Berat Bayi',
-                'isian'         => 'berat_bayI',
-                'data'          => $peristiwa->penduduk->berat_lahir,
+                'judul' => 'Berat Bayi',
+                'isian' => getFormatIsian('Berat_bayI'),
+                'data'  => $peristiwa->penduduk->berat_lahir,
             ],
             [
-                'case_sentence' => true,
-                'judul'         => 'Panjang Bayi',
-                'isian'         => 'panjang_bayI',
-                'data'          => $peristiwa->penduduk->panjang_lahir,
+                'judul' => 'Panjang Bayi',
+                'isian' => getFormatIsian('Panjang_bayI'),
+                'data'  => $peristiwa->penduduk->panjang_lahir,
             ],
         ];
     }
@@ -148,33 +146,32 @@ class KodeIsianPeristiwa
         return [
             [
                 'judul' => 'Hari Kematian',
-                'isian' => 'hari_kematian',
+                'isian' => getFormatIsian('Hari_kematiaN'),
                 'data'  => hari($peristiwa->tgl_peristiwa),
             ],
             [
                 'judul' => 'Tanggal Kematian',
-                'isian' => 'tanggal_kematian',
-                'data'  => formatTanggal($peristiwa->tgl_peristiwa),
+                'isian' => getFormatIsian('Tanggal_kematiaN'),
+                'data'  => tgl_indo($peristiwa->tgl_peristiwa),
             ],
             [
-                'case_sentence' => true,
-                'judul'         => 'Jam Kematian',
-                'isian'         => 'jam_kematian',
-                'data'          => $peristiwa->jam_mati,
+                'judul' => 'Jam Kematian',
+                'isian' => getFormatIsian('Jam_kematiaN'),
+                'data'  => $peristiwa->jam_mati,
             ],
             [
                 'judul' => 'Tempat Kematian',
-                'isian' => 'tempat_kematian',
+                'isian' => getFormatIsian('Tempat_kematiaN'),
                 'data'  => $peristiwa->meninggal_di,
             ],
             [
                 'judul' => 'Penyebab Kematian',
-                'isian' => 'penyebab_kematian',
+                'isian' => getFormatIsian('Penyebab_kematiaN'),
                 'data'  => $peristiwa->penyebab_kematian,
             ],
             [
                 'judul' => 'Penolong Kematian',
-                'isian' => 'penolong_kematian',
+                'isian' => getFormatIsian('Penolong_kematiaN'),
                 'data'  => $peristiwa->yang_menerangkan,
             ],
         ];
@@ -185,17 +182,17 @@ class KodeIsianPeristiwa
         return [
             [
                 'judul' => 'Hari Pindah',
-                'isian' => 'hari_pindah',
+                'isian' => getFormatIsian('Hari_pindaH'),
                 'data'  => hari($peristiwa->tgl_peristiwa),
             ],
             [
                 'judul' => 'Tanggal Pindah',
-                'isian' => 'tanggal_pindah',
-                'data'  => formatTanggal($peristiwa->tgl_peristiwa),
+                'isian' => getFormatIsian('Tanggal_pindaH'),
+                'data'  => tgl_indo($peristiwa->tgl_peristiwa),
             ],
             [
                 'judul' => 'Alamat Tujuan',
-                'isian' => 'alamat_tujuaN',
+                'isian' => getFormatIsian('Alamat_tujuaN'),
                 'data'  => $peristiwa->alamat_tujuan,
             ],
         ];
@@ -206,13 +203,13 @@ class KodeIsianPeristiwa
         return [
             [
                 'judul' => 'Hari Hilang',
-                'isian' => 'hari_hilang',
+                'isian' => getFormatIsian('Hari_hilanG'),
                 'data'  => hari($peristiwa->tgl_peristiwa),
             ],
             [
                 'judul' => 'Tanggal Hilang',
-                'isian' => 'tanggal_hilang',
-                'data'  => formatTanggal($peristiwa->tgl_peristiwa),
+                'isian' => getFormatIsian('Tanggal_hilanG'),
+                'data'  => tgl_indo($peristiwa->tgl_peristiwa),
             ],
         ];
     }
@@ -222,12 +219,12 @@ class KodeIsianPeristiwa
         return [
             [
                 'judul' => 'Tanggal Lapor',
-                'isian' => 'tanggal_lapor',
-                'data'  => formatTanggal($peristiwa->tgl_lapor),
+                'isian' => getFormatIsian('Tanggal_lapoR'),
+                'data'  => tgl_indo($peristiwa->tgl_lapor),
             ],
             [
                 'judul' => 'Catatan',
-                'isian' => 'catatan',
+                'isian' => getFormatIsian('CatataN'),
                 'data'  => $peristiwa->catatan,
             ],
         ];

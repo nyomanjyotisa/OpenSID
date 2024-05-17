@@ -207,12 +207,8 @@ function salinData() {
 					url  : 'salin_anggaran_tpl',
 					dataType : "JSON",
 					data : {kode: kode},
-					success: function (data) {
+					success: function(data) {
 						$('#ModalSalin').modal('hide');
-					},
-					error: function (xhr, status, error) {
-						$('#ModalSalin').modal('hide');
-						notification('error', xhr.responseText);
 					}
 				}).then(function() {
 					location.reload();

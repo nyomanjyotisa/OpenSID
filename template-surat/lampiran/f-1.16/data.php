@@ -19,7 +19,7 @@
             break;
         
         case 'lainnya':
-            $input['alasan_permohonan'] = 3;
+            $input['lainnya'] = 3;
             break;
         
         default:

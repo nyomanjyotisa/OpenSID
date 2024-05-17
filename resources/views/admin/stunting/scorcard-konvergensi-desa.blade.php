@@ -27,9 +27,11 @@
                     <div class="col-md-8 no-padding">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <select name="kuartal" id="kuartal" required class="form-control input-sm" title="Pilih salah satu">
+                                <select name="kuartal" id="kuartal" required class="form-control input-sm"
+                                    title="Pilih salah satu">
                                     @foreach (kuartal2() as $item)
-                                        <option value="{{ $item['ke'] }}" {{ $item['ke'] == $kuartal ? 'selected' : '' }}>Kuartal ke {{ $item['ke'] }}
+                                        <option value="{{ $item['ke'] }}"
+                                            {{ $item['ke'] == $kuartal ? 'selected' : '' }}>Kuartal ke {{ $item['ke'] }}
                                             ({{ $item['bulan'] }})
                                         </option>
                                     @endforeach
@@ -38,7 +40,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <select name="tahun" id="tahun" required class="form-control input-sm" title="Pilih salah satu">
+                                <select name="tahun" id="tahun" required class="form-control input-sm"
+                                    title="Pilih salah satu">
                                     @foreach ($dataTahun as $item)
                                         <option value="{{ $item->tahun }}">{{ $item->tahun }}</option>
                                     @endforeach
@@ -62,6 +65,12 @@
                             </button>
                         </div>
                     </div>
+                    <div class="col-md-4 no-padding pull-right">
+                        <!--
+                                                                      <a href="{{ base_url('scorcard-konvergensi-desa/export/') . $kuartal . '/' . $_tahun . '/' . $id }}" id="btnExport" type="button" class="btn pull-right btn-social bg-purple btn-sm">
+                                                                        <i class="fa fa-arrow-right"></i> Export ke Excel
+                                                                      </a> -->
+                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive">
@@ -72,8 +81,10 @@
                                     HAMIL DAN ANAK 0-23 BULAN)</th>
                             </tr>
                             <tr>
-                                <th width="15%" rowspan="2" colspan="3" class="text-center" style="vertical-align: middle;">Sasaran</th>
-                                <th width="45%" rowspan="2" colspan="2" class="text-center" style="vertical-align: middle;">JML TOTAL RUMAH TANGGA 1.000 HPK </th>
+                                <th width="15%" rowspan="2" colspan="3" class="text-center"
+                                    style="vertical-align: middle;">Sasaran</th>
+                                <th width="45%" rowspan="2" colspan="2" class="text-center"
+                                    style="vertical-align: middle;">JML TOTAL RUMAH TANGGA 1.000 HPK </th>
                                 <th width="20%" colspan="2" class="text-center" style="vertical-align: middle;">IBU HAMIL
                                 </th>
                                 <th width="20%" colspan="2" class="text-center" style="vertical-align: middle;">ANAK 0 –
@@ -359,7 +370,8 @@
                                 <th colspan="9" style="background-color:#efefef;">TABEL 4. TINGKAT KONVERGENSI DESA </th>
                             </tr>
                             <tr>
-                                <th width="5%" colspan="1" rowspan="2" class="text-center" style="vertical-align: middle;">No</th>
+                                <th width="5%" colspan="1" rowspan="2" class="text-center"
+                                    style="vertical-align: middle;">No</th>
                                 <th colspan="3" rowspan="2" class="text-center" style="vertical-align: middle;">SASARAN
                                 </th>
                                 <th colspan="3" rowspan="1" class="text-center" style="vertical-align: middle;">JUMLAH
@@ -428,7 +440,8 @@
                                     PENCEGAHAN STUNTING</th>
                             </tr>
                             <tr>
-                                <th width="5%" colspan="1" rowspan="2" class="text-center" style="vertical-align: middle;">No</th>
+                                <th width="5%" colspan="1" rowspan="2" class="text-center"
+                                    style="vertical-align: middle;">No</th>
                                 <th colspan="3" rowspan="2" class="text-center" style="vertical-align: middle;">
                                     BIDANG/KEGIATAN </th>
                                 <th colspan="1" rowspan="2" class="text-center" style="vertical-align: middle;">TOTAL
@@ -474,3 +487,4 @@
         });
     </script>
 @endpush
+

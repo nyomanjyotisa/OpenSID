@@ -59,12 +59,10 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('permohonan_surat_admin.datatables') }}",
-                    data: function(req) {
-                        req.status = $('#status').val();
-                    }
+                    url: "{{ route('permohonan_surat_admin.datatables') }}"
                 },
-                columns: [{
+                columns: [
+                    {
                         data: 'DT_RowIndex',
                         class: 'padat',
                         searchable: false,
@@ -118,10 +116,6 @@
                     [7, 'desc']
                 ],
                 pageLength: 25
-            });
-
-            $('#status').on('select2:select', function(e) {
-                TableData.draw();
             });
         });
     </script>

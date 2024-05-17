@@ -30,7 +30,7 @@
                                 <select name="bulan" id="bulan" class="form-control input-sm">
                                     <option value="">Bulan</option>
                                     @foreach ($bulan as $key => $data)
-                                        <option value="{{ $key + 1 }}">
+                                        <option value="{{ $key+1 }}">
                                             {{ $data }}
                                         </option>
                                     @endforeach
@@ -60,14 +60,18 @@
                     </div>
                     <div class="col-md-5 no-padding">
                         @if (can('u'))
-                            <a href="{{ route('stunting/formIbuHamil') }}" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="{{ route('stunting/formIbuHamil') }}"
+                                class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i
+                                    class="fa fa-plus"></i> Tambah</a>
                         @endif
                         @if (can('h'))
-                            <a href="#confirm-delete" title="Hapus Data" onclick="deleteAllBox('mainform', '{{ route('stunting.deleteIbuHamil') }}')" class="btn btn-social btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block hapus-terpilih"><i
-                                    class='fa fa-trash-o'
-                                ></i> Hapus</a>
+                            <a href="#confirm-delete" title="Hapus Data"
+                                onclick="deleteAllBox('mainform', '{{ route('stunting.deleteIbuHamil') }}')"
+                                class="btn btn-social btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block hapus-terpilih"><i
+                                    class='fa fa-trash-o'></i> Hapus</a>
                         @endif
-                        <a id="excel" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-file"></i> Ekspor ke excel</a>
+                        <a id="excel" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i
+                            class="fa fa-file"></i> Ekspor ke excel</a>
 
                     </div>
                 </div>
@@ -126,8 +130,8 @@
                 ajax: {
                     url: "{{ route('stunting.datatablesIbuHamil') }}",
                     data: function(req) {
-                        req.bulan = $('#bulan').val();
-                        req.tahun = $('#tahun').val();
+                        req.bulan    = $('#bulan').val();
+                        req.tahun    = $('#tahun').val();
                         req.posyandu = $('#posyandu').val();
                     },
                 },
@@ -168,8 +172,8 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
-                            return data.status_kehamilan = (data.status_kehamilan == 1) ? "NORMAL" : ((data.status_kehamilan == 2) ? "RISTI" : ((data.status_kehamilan == 3) ? "KEK" : "-"))
+                        data: function (data) {
+                            return data.status_kehamilan = (data.status_kehamilan == 1) ? "NORMAL" : ((data.status_kehamilan == 2)  ? "RISTI" : ((data.status_kehamilan == 3)  ? "KEK" : "-"))
                         },
                         name: 'status_kehamilan',
                         searchable: true,
@@ -182,7 +186,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.usia_kehamilan ?? '-'
                         },
                         name: 'usia_kehamilan',
@@ -196,7 +200,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.pemeriksaan_kehamilan == 1 ? 'v' : 'x'
                         },
                         name: 'pemeriksaan_kehamilan',
@@ -204,7 +208,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.konsumsi_pil_fe == 1 ? 'v' : 'x'
                         },
                         name: 'konsumsi_pil_fe',
@@ -212,7 +216,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.pemeriksaan_nifas == 1 ? 'v' : 'x'
                         },
                         name: 'pemeriksaan_nifas',
@@ -220,7 +224,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.konseling_gizi == 1 ? 'v' : 'x'
                         },
                         name: 'konseling_gizi',
@@ -228,7 +232,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.kunjungan_rumah == 1 ? 'v' : 'x'
                         },
                         name: 'kunjungan_rumah',
@@ -236,7 +240,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.akses_air_bersih == 1 ? 'v' : 'x'
                         },
                         name: 'akses_air_bersih',
@@ -244,7 +248,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.kepemilikan_jamban == 1 ? 'v' : 'x'
                         },
                         name: 'kepemilikan_jamban',
@@ -252,7 +256,7 @@
                         orderable: true
                     },
                     {
-                        data: function(data) {
+                        data: function (data) {
                             return data.jaminan_kesehatan == 1 ? 'v' : 'x'
                         },
                         name: 'jaminan_kesehatan',
@@ -283,13 +287,13 @@
             $(document).on('click', '#excel', function(e) {
                 $.ajax({
                     url: "{{ route('stunting.eksporIbuHamil') }}",
-                    type: "GET",
+                    type:"GET",
                     data: {
                         bulan: $('#bulan').val(),
                         tahun: $('#tahun').val(),
                         posyandu: $('#posyandu').val(),
                     },
-                    success: function(data) {
+                    success:function(data){
                         window.open(this.url, '_blank');
                     },
                 })
