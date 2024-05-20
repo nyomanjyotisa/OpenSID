@@ -35,7 +35,7 @@
  *
  */
 
-class MY_Email extends CI_Image_lib
+class MY_Image_lib extends CI_Image_lib
 {
     /**
      * Override initialize method
