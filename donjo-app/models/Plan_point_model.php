@@ -261,8 +261,8 @@ class Plan_point_model extends MY_Model
     public function tambah_simbol()
     {
         $config['upload_path']   = LOKASI_SIMBOL_LOKASI;
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|webp';
-        $this->load->library('upload');
+        $config['allowed_types'] = GAMBAR_ALLOWED_TYPES_WITH_GIF;
+        $this->load->library('MY_Upload', null, 'upload');
         $this->upload->initialize($config);
 
         if (! $this->upload->do_upload('simbol')) {
