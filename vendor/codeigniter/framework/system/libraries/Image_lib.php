@@ -1690,7 +1690,7 @@ class CI_Image_lib {
 			return FALSE;
 		}
 
-		$types = array(1 => 'gif', 2 => 'jpeg', 3 => 'png', 3 => 'webp');
+		$types = array(1 => 'gif', 2 => 'jpeg', 3 => 'png', 18 => 'webp');
 		$mime = isset($types[$vals[2]]) ? 'image/'.$types[$vals[2]] : 'image/jpg';
 
 		if ($return === TRUE)
